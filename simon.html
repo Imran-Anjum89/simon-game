@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Game - Memory Challenge</title>
+    <link rel="stylesheet" href="simon.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="game-header">
+            <h1>Simon Game</h1>
+            <h2 id="instruction">Press any button to start</h2>
+            <div class="score-board">
+                <span>Level: <strong id="level-display">0</strong></span>
+            </div>
+        </div>
+        <div class="btn-container">
+            <div class="line-one">
+                <div class="btn red" type="button" id="red">
+                    <span>1</span>
+                </div>
+                <div class="btn blue" type="button" id="blue">
+                    <span>2</span>
+                </div>
+            </div>
+            <div class="line-two">
+                <div class="btn pink" type="button" id="pink">
+                    <span>3</span>
+                </div>
+                <div class="btn green" type="button" id="green">
+                    <span>4</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="simon.js"></script>
+</body>
+</html>
