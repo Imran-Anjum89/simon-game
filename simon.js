@@ -8,15 +8,36 @@ let level = 0;
 
 let h2 = document.querySelector("#instruction");
 let levelDisplay = document.querySelector("#level-display");
+let playBtn = document.querySelector("#play-btn");
 
-document.addEventListener("keypress", function(){
+playBtn.addEventListener("click", function(){
     if(started == false){
-        console.log("Game started");
+        console.log("Game starting...");
         started = true;
-
-        levelUp();
+        playBtn.disabled = true;
+        playBtn.textContent = "⏳ Starting...";
+        startCountdown();
     }
 });
+
+function startCountdown(){
+    let count = 3;
+    h2.innerHTML = `<div class="countdown">${count}</div>`;
+
+    let countdownInterval = setInterval(function(){
+        count--;
+        if(count > 0){
+            h2.innerHTML = `<div class="countdown">${count}</div>`;
+        } else if(count === 0){
+            h2.innerHTML = `<div class="countdown">GO!</div>`;
+        } else {
+            clearInterval(countdownInterval);
+            setTimeout(function(){
+                levelUp();
+            }, 500);
+        }
+    }, 1000);
+}
 
 function gameflash(btn){
     btn.classList.add("flash");
@@ -104,6 +125,8 @@ function reset(){
     userSeq = [];
     level = 0;
     levelDisplay.innerText = "0";
-    h2.innerText = "Press any button to start";
+    h2.innerText = "Ready to play?";
+    playBtn.disabled = false;
+    playBtn.textContent = "🎮 PLAY";
 }
 
